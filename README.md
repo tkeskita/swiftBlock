@@ -24,7 +24,7 @@ Application examples include creation of block meshes for
   rectangular, cylindrical or spherical shapes.
 
 The add-on has been tested with
-[Blender 2.80](https://www.blender.org/) and
+[Blender 2.81a](https://www.blender.org/) and
 [OpenFOAM Foundation](https://openfoam.org/) version 7 of OpenFOAM.
 
 ## Documentation

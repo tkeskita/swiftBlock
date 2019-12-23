@@ -91,6 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#panels-and-settings">Panels and Settings</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#block-method-settings">Block Method Settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#edge-settings">Edge Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edge-groups">Edge Groups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#projections">Projections</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#boundary-patches">Boundary Patches</a></li>
 </ul>
@@ -195,7 +196,7 @@ rectangular, cylindrical or spherical shapes.</li>
 <p>This documentation describes the version of the add-on available under
 <a class="reference external" href="https://github.com/tkeskita/swiftBlock">github/tkeskita</a>.
 The add-on has been tested with
-<a class="reference external" href="https://www.blender.org/download/">Blender 2.80</a> and
+<a class="reference external" href="https://www.blender.org/download/">Blender 2.81a</a> and
 <a class="reference external" href="https://openfoam.org">OpenFOAM.org</a> version 7.
 Previous versions of the add-on are available in
 <a class="reference external" href="https://github.com/nogenmyr/swiftBlock">github/nogenmyr</a> and
@@ -206,8 +207,8 @@ and the documentation for original version is available at
 <div class="section" id="installation-and-start-up">
 <h2>Installation and Start-up<a class="headerlink" href="#installation-and-start-up" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>You need to use Blender 2.80. You can
-<a class="reference external" href="https://www.blender.org/download/">download Blender 2.80 here</a>.</li>
+<li>You need to use Blender 2.80 (or a newer version of Blender 2.8 series). You can
+<a class="reference external" href="https://www.blender.org/download/">download Blender here</a>.</li>
 <li>Add-on code is available at <a class="reference external" href="https://github.com/tkeskita/swiftBlock">https://github.com/tkeskita/swiftBlock</a>.
 To download add-on from Github, Select “Clone or download”, then
 “Download ZIP”.</li>
@@ -265,7 +266,7 @@ enables Edit Mode, and reveals the rest of the GUI.
 <em>BlockMeshMG</em>, which supports multi grading.
 <strong>Note:</strong> Currently no other methods are available. The source
 code also includes the original <em>blockMeshBodyFit</em> method, but is has
-not been upgraded/tested with Blender 2.80, so it is currently disabled.</li>
+not been upgraded/tested with Blender 2.8, so it is currently disabled.</li>
 <li><em>Build</em> tool identifies the blocks from the current mesh.
 Blocks are listed in the panel window after building is completed.
 <strong>Warning</strong>: Bulding may take a long time for complex block systems.</li>
@@ -317,6 +318,19 @@ specification of consistent parameter values.</li>
 <li><em>Flip Dir</em> tool flips the edge direction of selected edges.</li>
 <li><em>Show Edge Directions</em> tool visualizes the edge directions by adding
 cones to edge centers.</li>
+</ul>
+</div>
+<div class="section" id="edge-groups">
+<h3>Edge Groups<a class="headerlink" href="#edge-groups" title="Permalink to this headline">¶</a></h3>
+<p>Edge Groups is a new panel which allows creation of Edge Groups,
+similar to Vertex Groups in Blender.</p>
+<ul class="simple">
+<li><em>Add (+)</em> will create a new edge group</li>
+<li><em>Delete (-)</em> will remove the active edge group</li>
+<li><em>Assign</em> will add the selected edges to active edge group</li>
+<li><em>Remove</em> will remove the selected edges from the active edge group</li>
+<li><em>Select</em> adds the edges in the active edge group into current edge selection</li>
+<li><em>Deselect</em> removes currently selected edges from the active edge group</li>
 </ul>
 </div>
 <div class="section" id="projections">

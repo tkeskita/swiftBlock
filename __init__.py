@@ -234,13 +234,18 @@ class VIEW3D_PT_SwiftBlockPanel(bpy.types.Panel):
                 box.operator("swift_block.draw_edge_directions",text='Show edge directions',emboss=False,icon="CHECKBOX_DEHLT").show=True
             #Edge grouping control panel
             box = self.layout.box()
-            box.label(text="Edge groups")
-            row = box.row()
+            box.label(text="Edge Groups")
+            split = box.split(factor=0.85)
+            row = split.column()
             row.template_list("SWIFTBLOCK_UL_edgegroup_items", "", ob, "swiftBlock_edgegroups", ob, "swiftBlock_edgegroup_index", rows=max(len(ob.swiftBlock_edgegroups),2))
-            col = row.column(align=True)
-            col.operator("swift_block.edgegroups_action",  text="Add").action = 'ADD'
-            col.operator("swift_block.edgegroups_action",  text="Remove").action = 'REMOVE'
-            col.operator("swift_block.edgegroups_action", text="Select").action = 'SELECT'
+            row = split.column()
+            row.operator("swift_block.edgegroups_action", text="", icon='ADD').action = 'ADD'
+            row.operator("swift_block.edgegroups_action", text="", icon='REMOVE').action = 'DELETE'
+            row = box.split(align=True)
+            row.operator("swift_block.edgegroups_action", text="Assign").action = 'ASSIGN'
+            row.operator("swift_block.edgegroups_action", text="Remove").action = 'REMOVE'
+            row.operator("swift_block.edgegroups_action", text="Select").action = 'SELECT'
+            row.operator("swift_block.edgegroups_action", text="Deselect").action = 'DESELECT'
 
             box = self.layout.box()
             box.label(text="Projections")
@@ -378,9 +383,12 @@ class SWIFTBLOCK_OT_EdgeGroupsAction(bpy.types.Operator):
 
     action: bpy.props.EnumProperty(
         items=(
-            ('REMOVE', "Remove", ""),
             ('ADD', "Add", ""),
+            ('DELETE', "Delete", ""),
+            ('ASSIGN', "Assign", ""),
+            ('REMOVE', "Remove", ""),
             ('SELECT', "Select", ""),
+            ('DESELECT', "Deselect", ""),
         )
     )
 
@@ -390,7 +398,12 @@ class SWIFTBLOCK_OT_EdgeGroupsAction(bpy.types.Operator):
         egLayer = bm.edges.layers.int.get("edgegroup")
         index = ob.swiftBlock_edgegroup_index
 
-        if self.action == 'REMOVE':
+        if self.action == 'ADD':
+            index = len(ob.swiftBlock_edgegroups)
+            neweg = ob.swiftBlock_edgegroups.add()
+            neweg.name = 'EdgeGroup_{}'.format(index)
+
+        if self.action == 'DELETE':
             ob.swiftBlock_edgegroups.remove(index)
             for e in bm.edges:
                 if e[egLayer] == index:
@@ -398,20 +411,26 @@ class SWIFTBLOCK_OT_EdgeGroupsAction(bpy.types.Operator):
                 elif e[egLayer] > index:
                     e[egLayer] -= 1
 
-        if self.action == 'ADD':
-            index = len(ob.swiftBlock_edgegroups)
-            edgesSelected = False
+        if self.action == 'ASSIGN':
             for e in bm.edges:
                 if e.select:
-                    e[egLayer] = len(ob.swiftBlock_edgegroups)
-                    edgesSelected = True
-            if edgesSelected:
-                neweg = ob.swiftBlock_edgegroups.add()
-                neweg.name = 'EdgeGroup_{}'.format(index)
+                    e[egLayer] = index
+
+        if self.action == 'REMOVE':
+            for e in bm.edges:
+                if e.select:
+                    e[egLayer] = -1
+
         if self.action == 'SELECT':
             for e in bm.edges:
                 if e[egLayer] == index:
                     e.select = True
+
+        if self.action == 'DESELECT':
+            for e in bm.edges:
+                if e.select and e[egLayer] == index:
+                    e.select = False
+
         ob.data.update()
         return {"FINISHED"}
 
@@ -861,7 +880,7 @@ class SWIFTBLOCK_OT_SetCellSize(bpy.types.Operator):
                 print(N)
         return {'FINISHED'}
 
-    filename = bpy.props.StringProperty(default='')
+    filename: bpy.props.StringProperty(default='')
 
 class SWIFTBLOCK_OT_EdgeSelectParallel(bpy.types.Operator):
     bl_idname = "swift_block.edge_select_parallel"
@@ -908,36 +927,6 @@ class SWIFTBLOCK_OT_FlipEdges(bpy.types.Operator):
         bpy.ops.swift_block.draw_edge_directions('INVOKE_DEFAULT',show=False)
         return {'FINISHED'}
 
-class GetBlock(bpy.types.Operator):
-    "Get block from selection"
-    bl_idname = "get.block"
-    bl_label = "Get block"
-    bl_options = {'REGISTER', 'UNDO'}
-
-    def invoke(self, context, event):
-        ob = bpy.context.active_object
-        bm = bmesh.from_edit_mesh(ob.data)
-        selection = []
-        for v in bm.verts:
-            if v.select:
-                selection.append(v.index)
-        block = False
-        occs = []
-        for b in ob.blocks:
-            occ = [v in selection for v in b.verts].count(True)
-            if occ == 8:
-                block = b
-                break
-            else:
-                occs.append(occ)
-        if not block:
-            max_occ = max(enumerate(occs), key=lambda x:x[1])[0]
-            block = ob.blocks[max_occ]
-        if not block:
-            self.report({'INFO'}, "No block found with selected vertices")
-            return {'CANCELLED'}
-        bpy.ops.edit.block('INVOKE_DEFAULT', blockid=block.id, name = block.name )
-        return {'FINISHED'}
 
 # Projection operators
 # TODO Projections are saved to a Blender CollectionProperty. At the

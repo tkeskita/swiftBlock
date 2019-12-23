@@ -157,4 +157,3 @@ def draw_edge_direction(self,context):
     bgl.glLineWidth(1)
     bgl.glDisable(bgl.GL_BLEND)
     bgl.glColor4f(0.0,0.0,0.0,1.0)
-

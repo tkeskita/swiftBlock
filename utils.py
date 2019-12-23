@@ -291,7 +291,7 @@ def obFromStructuredMesh(verts, dim, objName):
         bm.from_pydata(bv, [], bf)
 
     vol_me=bpy.data.meshes.new('internal')
-    vol_me.from_pydata(verts, edges,faces) 
+    vol_me.from_pydata(verts, edges,faces)
     vol_me.update()
 
     ob = bpy.data.objects.new(objName,vol_me)
@@ -354,10 +354,10 @@ def collectEdges(bob, lengths):
         else:
             L = (e.verts[0].co-e.verts[1].co).length
         be["type"] = bob.swiftBlock_MappingType
-        be["x1"] = e[x1l] 
-        be["x2"] = e[x2l] 
-        be["r1"] = e[r1l] 
-        be["r2"] = e[r2l] 
+        be["x1"] = e[x1l]
+        be["x2"] = e[x2l]
+        be["r1"] = e[r1l]
+        be["r2"] = e[r2l]
         be["N"] = ncells[e[groupl]]
         be["ratio"] = e[ratiol]
         be["L"] = L
@@ -471,7 +471,7 @@ def writeMesh(ob, folder = ''):
     bpy.ops.object.mode_set(mode='OBJECT')
     for e,sel in zip(ob.data.edges,selected_edges):
         e.select = sel
-        
+
     ### This is everything that is related to blockMesh so a new multiblock mesher could be introduced easily just by creating new preview file ###
     if ob.swiftBlock_Mesher == 'blockMeshMG':
         from . import blockMeshMG
@@ -521,7 +521,7 @@ def hideFacesEdges(ob, showInternal = False):
     enabledl = bm.faces.layers.int.get('enabled')
 
     for f in bm.faces:
-        if f[negl] != -1 and f[posl] != -1: 
+        if f[negl] != -1 and f[posl] != -1:
             if (not ob.swiftBlock_blocks[f[posl]].enabled and ob.swiftBlock_blocks[f[negl]].enabled) \
                     or (ob.swiftBlock_blocks[f[posl]].enabled and not ob.swiftBlock_blocks[f[negl]].enabled):
                 # boundary face
@@ -612,7 +612,7 @@ def updateProjections(ob):
             remove_projections.append(i)
     for pid in reversed(sorted(remove_projections)):
         ob.swiftBlock_projections.remove(pid)
-        
+
 # Boundary condition operators
 def selectActiveBoundary(self, context):
     ob = context.active_object
@@ -779,7 +779,3 @@ def sortedVertices(verts,edges,startVert):
         if vid>=1:
             length += (vectors[vid] - vectors[vid-1]).magnitude
     return polyLine, vectors, length
-
-
-
-

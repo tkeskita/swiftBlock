@@ -336,4 +336,3 @@ def blockFinder(edges, vertices_coord, logFileName='', debugFileName='', disable
     for es, edgeSet in enumerate(dependent_edges): # remove duplicates in lists
         dependent_edges[es] = removedup(edgeSet)
     return logFile, block_print_out, dependent_edges, face_info, all_edges, faces_as_list_of_nodes
-

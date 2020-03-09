@@ -47,7 +47,9 @@ Installation and Start-up
 * Add-on code is available at https://github.com/tkeskita/swiftBlock.
   To download add-on from Github, Select "Clone or download", then
   "Download ZIP".
-* Start Blender, go to "Edit" --> "Preferences" --> "Add-ons" --> "Install"
+* `Source OpenFOAM <https://openfoamwiki.net/index.php/Installation/Working_with_the_Shell#OpenFOAM_Environment_Variables>`_
+  in a terminal window. If you don't, you can't run Preview command.
+* Start Blender from the same terminal window, go to "Edit" --> "Preferences" --> "Add-ons" --> "Install"
   --> open the add-on zip file.
 * Activate the "SwiftBlock" add-on in Preferences.
   Add-on is located in OpenFOAM category, Testing level of Blender add-ons.
@@ -109,7 +111,9 @@ information.
 * *Use Numba* option box enables Python Numba performance library.
   Numba compiles the Build tool into machine code, which decreases the
   time required for *Build*.
-  **Note**: Numba requires installation of the Numba Python libraries.
+  **Note**: Numba requires installation of the Numba Python libraries
+  into Blender. You can use similar installation procedure as
+  `installation of VTK into Blender <https://github.com/tkeskita/BVtkNodes/blob/master/pip_install_vtk.md>`_.
 * *Preview* tool shows preview of the edges on the result block mesh.
   Preview requires that the OpenFOAM blockMesh utility is available in
   Blender. An error message is displayed if blockMesh command is not

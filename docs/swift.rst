@@ -31,9 +31,9 @@ Application examples include creation of block meshes for
 
 This documentation describes the version of the add-on available under
 `github/tkeskita <https://github.com/tkeskita/swiftBlock>`_.
-The add-on has been tested with
-`Blender 2.81a <https://www.blender.org/download/>`_ and
-`OpenFOAM.org <https://openfoam.org>`_ version 7.
+The add-on is meant to work with latest release of
+Blender 2.8 series and
+`OpenFOAM Foundation version <https://openfoam.org>`_.
 Previous versions of the add-on are available in
 `github/nogenmyr <https://github.com/nogenmyr/swiftBlock>`_ and
 `github/Flowkersma <https://github.com/Flowkersma/swiftBlock>`_, 
@@ -43,8 +43,7 @@ and the documentation for original version is available at
 Installation and Start-up
 -------------------------
 
-* You need to use Blender 2.80 (or a newer version of Blender 2.8 series). You can
-  `download Blender here <https://www.blender.org/download/>`_.
+* `Download Blender here <https://www.blender.org/download/>`_.
 * Add-on code is available at https://github.com/tkeskita/swiftBlock.
   To download add-on from Github, Select "Clone or download", then
   "Download ZIP".
@@ -52,7 +51,7 @@ Installation and Start-up
   --> open the add-on zip file.
 * Activate the "SwiftBlock" add-on in Preferences.
   Add-on is located in OpenFOAM category, Testing level of Blender add-ons.
-* Click "Save Preferences" to autoload add-on every time Blender is started
+
 
 Add-on visibility
 -----------------

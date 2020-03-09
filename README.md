@@ -18,20 +18,25 @@ include
 
 Application examples include creation of block meshes for
 
+* structured meshes with control of boundary layers
 * orthogonal base mesh with elongated or stretched cells for
   SnappyHexMesh
 * controlled grading of hexahedral meshes inside or outside
   rectangular, cylindrical or spherical shapes.
 
+<p align="center">
+<img src="docs/images/complex_block_with_elongations.png">
+</p>
+
 The add-on has been tested with
-[Blender 2.81a](https://www.blender.org/) and
+[Blender 2.82](https://www.blender.org/) and
 [OpenFOAM Foundation](https://openfoam.org/) version 7 of OpenFOAM.
 
 ## Documentation
 
-Documentation is available in the *doc* directory in the source code,
-and for web viewing at
-http://tkeskita.kapsi.fi/blender/SwiftBlock/docs/swift.html
+Documentation (made using [Sphinx](https://www.sphinx-doc.org/en/master/))
+is located in docs directory of the sources and is viewable online at
+https://swiftblock.readthedocs.io.
 
 ### OpenFOAM Trade Mark Notice
 

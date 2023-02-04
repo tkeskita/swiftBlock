@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-swiftBlock Addon for Blender 2.8 
-================================
+swiftBlock Addon for Blender
+============================
 
 .. toctree::
    :maxdepth: 2

@@ -51,7 +51,7 @@ def cycleFinder(edges,verts):
         for eid, e in enumerate(edges):
             if v in e:
                 v_in_edge[v].append(eid)
-    v_in_edges = np.array(v_in_edge)
+    v_in_edges = np.array(v_in_edge, dtype=list)
 
     for v in verticesId:
         currentCycle = [v]
@@ -61,11 +61,11 @@ def cycleFinder(edges,verts):
     faces = np.reshape(faces,(-1,4))
     temp, u = np.unique(np.sort(faces), axis=0, return_index=True)
     faces = faces[u]
-    facesP = [list(map(np.asscalar,f)) for f in faces]
+    facesP = faces.tolist()
 
     facesEdges = np.reshape(facesEdges,(-1,4))
     facesEdges = facesEdges[u]
-    facesEdgesP = [list(map(np.asscalar,f)) for f in facesEdges]
+    facesEdgesP = facesEdges.tolist()
 
     return facesP, facesEdgesP
 

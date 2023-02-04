@@ -29,8 +29,8 @@ Application examples include creation of block meshes for
 </p>
 
 The add-on has been tested with
-[Blender 2.82](https://www.blender.org/) and
-[OpenFOAM Foundation](https://openfoam.org/) version 7 of OpenFOAM.
+[Blender LTS 3.3](https://www.blender.org/) and
+[OpenFOAM Foundation](https://openfoam.org/) version 10 of OpenFOAM.
 
 ## Documentation
 

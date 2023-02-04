@@ -1,5 +1,5 @@
-SwiftBlock Addon for Blender 2.8
-================================
+SwiftBlock Addon for Blender
+============================
 
 .. image:: images/complex_block_with_elongations.png
 
@@ -31,14 +31,15 @@ Application examples include creation of block meshes for
 
 This documentation describes the version of the add-on available under
 `github/tkeskita <https://github.com/tkeskita/swiftBlock>`_.
-The add-on is meant to work with latest release of
-Blender 2.8 series and
+The add-on is meant to work with
+Blender LTS 3.3 and
 `OpenFOAM Foundation version <https://openfoam.org>`_.
 Previous versions of the add-on are available in
 `github/nogenmyr <https://github.com/nogenmyr/swiftBlock>`_ and
 `github/Flowkersma <https://github.com/Flowkersma/swiftBlock>`_, 
 and the documentation for original version is available at
 `OpenFOAM wiki <http://openfoamwiki.net/index.php/SwiftBlock>`_.
+
 
 Installation and Start-up
 -------------------------
@@ -114,6 +115,7 @@ information.
   **Note**: Numba requires installation of the Numba Python libraries
   into Blender. You can use similar installation procedure as
   `installation of VTK into Blender <https://github.com/tkeskita/BVtkNodes/blob/master/pip_install_vtk.md>`_.
+  **Warning**: Not tested.
 * *Preview* tool shows preview of the edges on the result block mesh.
   Preview requires that the OpenFOAM blockMesh utility is available in
   Blender. An error message is displayed if blockMesh command is not
@@ -121,7 +123,7 @@ information.
   prompt, source OpenFOAM in the terminal, and start blender from the
   same terminal. Preview will automatically run *Build* tool if needed.
 * *Export* tool saves blockMeshDict file into a case folder. The user
-  is prompted to select the case folder.
+  is prompted to select the case folder. Do not provide any file name.
 * *Block list* contains the list of blocks identified by the *Build* tool.
 
   * Clicking a block selects and highlights the block in the 3D
@@ -131,6 +133,8 @@ information.
 
 * *Get Block from Selection* selects the block attached to the current
   selection.
+* *Extrude Blocks (Retain Internal Edges)* is a special extrusion tool
+  for Swift Block, which keeps the internal edges in extrusion.
 
 Edge Settings
 ^^^^^^^^^^^^^
@@ -243,11 +247,12 @@ in Blender.
 
 * Select the default Cube object and click on *Initialize Object* in
   SwiftBlock panel
-* Select all vertices, run Swift Block operator *Extrude Blocks* from
+* Select all vertices, run Swift Block operator *Extrude Blocks (Retain Internal Edges)* from
+  either the button on the panel or
   the operator search menu by pressing F3 in the 3D Viewport, type
-  name of operator, click operator name in the list, and finally
-  right-click to cancel moving. *Extrude Blocks* creates face
-  extrusion retaining internal faces.
+  name of operator, click operator name in the list. Finally,
+  right-click to cancel moving. *Extrude Blocks (Retain Internal Edges)* creates face
+  extrusion retaining internal edges.
 * Scale exruded vertices by factor 3 using selection center or origin
   as pivot point. This positions 6 blocks around center cube block.
 * Extrude the face in positive X direction by 12 m to create a

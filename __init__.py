@@ -1,8 +1,8 @@
 bl_info = {
     "name": "SwiftBlock",
     "author": "Karl-Johan Nogenmyr, Mikko Folkersma, Turo Valikangas, Tuomo Keskitalo",
-    "version": (0, 4),
-    "blender": (2, 80, 0),
+    "version": (0, 5),
+    "blender": (2, 93, 0),
     "location": "View_3D > Object > SwiftBlock",
     "description": "Creates OpenFOAM blockMeshDict block geometry definition file",
     "warning": "",
@@ -203,6 +203,8 @@ class VIEW3D_PT_SwiftBlockPanel(bpy.types.Panel):
             split.operator("swift_block.write_mesh")
             box.template_list("SWIFTBLOCK_UL_block_items", "", ob, "swiftBlock_blocks", ob, "swiftBlock_block_index", rows=2)
             box.operator("swift_block.get_block")
+            row = box.row()
+            row.operator("swift_block.extrude_blocks")
 
             box = self.layout.box()
             box.label(text="Edge Settings")
@@ -1124,7 +1126,7 @@ class SWIFTBLOCK_OT_ExtrudeBlocks(bpy.types.Operator):
     """Extrude blocks without removing internal edges"""
     bl_idname = "swift_block.extrude_blocks"
     bl_label = "Extrude Blocks (Retain Internal Edges)"
-    bl_description = "Extrude Blocks without Removing Internal Edges (BlockSwift)"
+    bl_description = "Extrude Blocks without Removing Internal Edges (SwiftBlock)"
     bl_options = {'REGISTER', 'UNDO'}
 
     def execute(self, context):
@@ -1294,7 +1296,7 @@ classes = (
 )
 
 def blockExtrusion_menu(self, context):
-    self.layout.operator("swift_block.extrude_block")
+    self.layout.operator(SWIFTBLOCK_OT_ExtrudeBlocks.bl_idname)
 
 def register():
     for cls in classes:

@@ -798,7 +798,7 @@ class SWIFTBLOCK_OT_SetEdge(bpy.types.Operator):
             if e.select:
                 e[typel] = str.encode(ob.swiftBlock_MappingType)
                 e[cellsl] = ob.swiftBlock_Cells
-                e[timel] = time.time()
+                e[timel] = int(time.time())
                 if ob.swiftBlock_MappingType == "Geometric MG":
                     e[x1l] = ob.swiftBlock_x1
                     e[x2l] = ob.swiftBlock_x2

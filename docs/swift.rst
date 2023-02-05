@@ -189,6 +189,8 @@ mesh objects.
 .. image:: images/projections.png
 
 * *Icon* drop down menu specifies the projection object.
+  **Note**: Projection object must be visible (not hidden) for
+  projection to work correctly.
   **Note**: Object name must start with a letter and not a number,
   so that OpenFOAM interprets the result correctly. If object name
   starts with a number, you will get error like

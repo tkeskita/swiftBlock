@@ -25,7 +25,7 @@ Application examples include creation of block meshes for
   rectangular, cylindrical or spherical shapes.
 
 <p align="center">
-<img src="docs/images/complex_block_with_elongations.png">
+<img src="docs/images/naca_airfoil_mesh_preview.png">
 </p>
 
 The add-on has been tested with

@@ -1,7 +1,7 @@
 SwiftBlock Addon for Blender
 ============================
 
-.. image:: images/complex_block_with_elongations.png
+.. image:: images/naca_airfoil_mesh_preview.png
 
 Introduction
 ------------
@@ -303,6 +303,21 @@ in Blender.
 * Run OpenFOAM command *blockMesh* in case folder to create block
   volume mesh and inspect the result with e.g.
   `Paraview <https://www.paraview.org>`_
+
+
+More examples
+-------------
+
+More examples can be found in the `example` folder of the add-on sources.
+
+.. image:: images/naca_airfoil_mesh_preview.png
+
+NACA airfoil example
+
+.. image:: images/complex_block_with_elongations.png
+
+Complex block example
+
 
 OpenFOAM Trade Mark Notice
 --------------------------

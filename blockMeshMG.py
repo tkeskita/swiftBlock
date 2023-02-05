@@ -13,6 +13,9 @@ class PreviewMesh():
         #else:
         #    self.blockMeshbin = 'blockMesh'
         if folder:
+            if os.path.isfile(folder):
+                folder = os.path.dirname(folder)
+            print("Exporting to directory " + str(folder))
             if not os.path.isdir(folder):
                 os.mkdir(folder)
             if not os.path.isdir(os.path.join(folder, 'constant')):

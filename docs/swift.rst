@@ -123,7 +123,8 @@ information.
   prompt, source OpenFOAM in the terminal, and start blender from the
   same terminal. Preview will automatically run *Build* tool if needed.
 * *Export* tool saves blockMeshDict file into a case folder. The user
-  is prompted to select the case folder. Do not provide any file name.
+  is prompted to select the case folder. Any file name is ignored, only
+  the directory matters.
 * *Block list* contains the list of blocks identified by the *Build* tool.
 
   * Clicking a block selects and highlights the block in the 3D
@@ -187,7 +188,11 @@ mesh objects.
 
 .. image:: images/projections.png
 
-* *Icon* drop down menu specifies the projection object
+* *Icon* drop down menu specifies the projection object.
+  **Note**: Object name must start with a letter and not a number,
+  so that OpenFOAM interprets the result correctly. If object name
+  starts with a number, you will get error like
+  ``Expected a '(' or a '{' while reading List...``
 * *Add* button will add the specified object as projection object and
   populates list of projected vertices, edges and faces.
 * *Remove* button will remove all projections

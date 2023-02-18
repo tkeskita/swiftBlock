@@ -38,6 +38,10 @@ Documentation (made using [Sphinx](https://www.sphinx-doc.org/en/master/))
 is located in docs directory of the sources and is viewable online at
 https://swiftblock.readthedocs.io.
 
+## Feedback
+
+If you use this add-on, please star the project in GitHub!
+
 ### OpenFOAM Trade Mark Notice
 
 This offering is not approved or endorsed by OpenCFD Limited, producer

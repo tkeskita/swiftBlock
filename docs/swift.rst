@@ -239,6 +239,9 @@ File bug report in
 or discuss the add-on on the
 `SwiftBlock thread on cfd-online <https://www.cfd-online.com/Forums/openfoam-community-contributions/100604-swiftsnap-swiftblock-guis-openfoams-meshers.html>`_
 
+If you use this add-on, please star the project in GitHub!
+
+
 Tutorial Example: Flow Around Sphere
 ------------------------------------
 

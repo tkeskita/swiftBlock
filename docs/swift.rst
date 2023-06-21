@@ -8,32 +8,34 @@ Introduction
 
 SwiftBlock is a `Blender <https://www.blender.org/>`_ GUI add-on for
 the OpenFOAM® *blockMesh* utility, which creates hexahedral block
-structured volume meshes for OpenFOAM simulations. Block structure is
-first modelled as a mesh object in Blender. A graph theory based
-method implemented in the addon identifies the discrete hexahedral
-blocks in the mesh object and generates blockMeshDict. Main features
-include
+structured volume meshes for OpenFOAM simulations.
+The target of SwiftBlock is to ease the creation of structured
+block meshes for controlled grading (e.g. boundary layers) or streched
+cells composed of hexahedral cell blocks.
+
+Block structure is first modelled as a mesh object in Blender. A graph
+theory based method implemented in the addon identifies the discrete
+hexahedral blocks in the mesh object and generates blockMeshDict. Main
+features include
 
 * user specified divisions and optional grading of block edges
 * specification of patches (boundary surfaces)
 * specification of blocks to create cell zones/sets
 * easy block manipulations including selection, visualisation and disabling of blocks
 * visualization of edge directions
-* projection of block edges to surfaces on another object to
-  create curved shapes
+* projection of block edges to surfaces on mesh objects to
+  create e.g. curved shapes
 
-Application examples include creation of block meshes for
 
-* orthogonal base mesh with elongated or stretched cells for
-  SnappyHexMesh
-* controlled grading of hexahedral meshes inside or outside
-  rectangular, cylindrical or spherical shapes.
+Versions
+--------
 
 This documentation describes the version of the add-on available under
 `github/tkeskita <https://github.com/tkeskita/swiftBlock>`_.
 The add-on is meant to work with
 Blender LTS 3.3 and
-`OpenFOAM Foundation version <https://openfoam.org>`_.
+`OpenFOAM Foundation <https://openfoam.org>`_ version 10.
+
 Previous versions of the add-on are available in
 `github/nogenmyr <https://github.com/nogenmyr/swiftBlock>`_ and
 `github/Flowkersma <https://github.com/Flowkersma/swiftBlock>`_, 
@@ -44,16 +46,20 @@ and the documentation for original version is available at
 Installation and Start-up
 -------------------------
 
-* `Download Blender here <https://www.blender.org/download/>`_.
 * Add-on code is available at https://github.com/tkeskita/swiftBlock.
-  To download add-on from Github, Select "Clone or download", then
+  To download add-on from Github, Select "Code", then
   "Download ZIP".
-* `Source OpenFOAM <https://openfoamwiki.net/index.php/Installation/Working_with_the_Shell#OpenFOAM_Environment_Variables>`_
-  in a terminal window. If you don't, you can't run Preview command.
-* Start Blender from the same terminal window, go to "Edit" --> "Preferences" --> "Add-ons" --> "Install"
-  --> open the add-on zip file.
-* Activate the "SwiftBlock" add-on in Preferences.
-  Add-on is located in OpenFOAM category, Testing level of Blender add-ons.
+* Start a terminal (command line window).
+* Source OpenFOAM in the terminal window if needed (see `OpenFOAM environment variables <https://openfoamwiki.net/index.php/Installation/Working_with_the_Shell#OpenFOAM_Environment_Variables>`_).
+  If OpenFOAM commands (e.g. `blockMesh`) are not available in the terminal,
+  you can't run the *Preview* command in the add-on.
+* Start Blender from the same terminal window.
+* Add-on installation:
+
+  * In Blender, go to
+    "Edit" --> "Preferences" --> "Add-ons" --> "Install" --> open the add-on zip file.
+  * Activate the "SwiftBlock" add-on in Preferences.
+    Add-on is located in OpenFOAM category, Testing level of Blender add-ons.
 
 
 Add-on visibility
@@ -69,7 +75,7 @@ tab in Edit Mode. To view the add-on panels, you must
 Quickstart
 ----------
 
-* Install add-on as specified above
+* Install and start Blender as specified above
 * In Blender, select the default Cube object in 3D Viewport or in Outliner
 * Make add-on panels visible as described above
 * Click *Initialize Object*
@@ -234,10 +240,15 @@ remove it from the patch list unless you intend to use it.
 Feedback and Help
 -----------------
 
-File bug report in
-`github <https://github.com/tkeskita/swiftBlock/issues>`_
-or discuss the add-on on the
-`SwiftBlock thread on cfd-online <https://www.cfd-online.com/Forums/openfoam-community-contributions/100604-swiftsnap-swiftblock-guis-openfoams-meshers.html>`_
+If you're new to OpenFOAM, please see links at
+https://holzmann-cfd.com/community/learn-openfoam,
+https://openfoamwiki.net and
+https://www.cfd-online.com/Forums/openfoam/.
+
+File bug reports for the add-on in
+`GitHub <https://github.com/tkeskita/swiftBlock/issues>`_.
+Please ask for help for the add-on or discuss in the
+`SwiftBlock thread on CFD-Online <https://www.cfd-online.com/Forums/openfoam-community-contributions/100604-swiftsnap-swiftblock-guis-openfoams-meshers.html>`_.
 
 If you use this add-on, please star the project in GitHub!
 

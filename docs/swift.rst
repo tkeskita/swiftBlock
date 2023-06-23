@@ -36,6 +36,9 @@ The add-on is meant to work with
 Blender LTS 3.3 and
 `OpenFOAM Foundation <https://openfoam.org>`_ version 10.
 
+Please note that
+`Preview command has an issue on Windows OS <https://github.com/tkeskita/swiftBlock/issues/12>`_.
+
 Previous versions of the add-on are available in
 `github/nogenmyr <https://github.com/nogenmyr/swiftBlock>`_ and
 `github/Flowkersma <https://github.com/Flowkersma/swiftBlock>`_, 

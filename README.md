@@ -1,12 +1,16 @@
 # SwiftBlock
 
 SwiftBlock is a [Blender](https://www.blender.org/) GUI add-on for
-the OpenFOAM® *BlockMesh* utility, which creates hexahedral block
-structured volume meshes for OpenFOAM simulations. Block structure is
-first modelled as a mesh object in Blender. A graph theory based
-method implemented in the addon identifies the discrete hexahedral
-blocks in the mesh object and generates blockMeshDict. Main features
-include
+the OpenFOAM® *blockMesh* utility, which creates hexahedral block
+structured volume meshes for OpenFOAM simulations.
+The target of SwiftBlock is to ease the creation of structured
+block meshes for controlled grading (e.g. boundary layers) or streched
+cells composed of hexahedral cell blocks.
+
+Block structure is first modelled as a mesh object in Blender. A graph
+theory based method implemented in the addon identifies the discrete
+hexahedral blocks in the mesh object and generates blockMeshDict. Main
+features include
 
 * user specified divisions and optional grading of block edges
 * specification of patches (boundary surfaces)
@@ -15,14 +19,6 @@ include
 * visualization of edge directions
 * projection of block edges to surfaces on another object to
   create curved shapes
-
-Application examples include creation of block meshes for
-
-* structured meshes with control of boundary layers
-* orthogonal base mesh with elongated or stretched cells for
-  SnappyHexMesh
-* controlled grading of hexahedral meshes inside or outside
-  rectangular, cylindrical or spherical shapes.
 
 <p align="center">
 <img src="docs/images/naca_airfoil_mesh_preview.png">

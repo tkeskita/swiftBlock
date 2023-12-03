@@ -15,7 +15,7 @@ class PreviewMesh():
         else:
             raise RuntimeError('ERROR: No BlockMeshBodyFit Found!')
         if folder:
-            if os.path.isfile(folder):
+            if os.path.isfile(folder) or not os.path.exists(folder):
                 folder = os.path.dirname(folder)
             print("Exporting to directory " + str(folder))
             if not os.path.isdir(folder):

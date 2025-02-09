@@ -643,7 +643,17 @@ def writeProjectionObjects(ob, path, onlyFaces = False):
         sob = bpy.data.objects[o]
         hide = sob.hide_get()
         blender_utils.activateObject(sob)
-        bpy.ops.export_mesh.stl(filepath = path + '/{}.stl'.format(o), use_selection=True)
+
+        filepath = path + '/{}.stl'.format(o)
+        if "export_mesh" in dir(bpy.ops):
+            # Blender 3.6 and earlier
+            bpy.ops.export_mesh.stl(filepath=filepath, use_selection=True)
+        elif "stl_export" in dir(bpy.ops.wm):
+            # Blender 4.2 and later
+            bpy.ops.wm.stl_export(filepath=filepath)
+        else:
+            raise Exception("No known STL exporters found")
+
         sob.hide_set(hide)
     blender_utils.activateObject(ob)
     return objects

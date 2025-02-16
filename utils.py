@@ -650,7 +650,7 @@ def writeProjectionObjects(ob, path, onlyFaces = False):
             bpy.ops.export_mesh.stl(filepath=filepath, use_selection=True)
         elif "stl_export" in dir(bpy.ops.wm):
             # Blender 4.2 and later
-            bpy.ops.wm.stl_export(filepath=filepath)
+            bpy.ops.wm.stl_export(filepath=filepath, export_selected_objects=True)
         else:
             raise Exception("No known STL exporters found")
 

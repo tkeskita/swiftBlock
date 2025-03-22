@@ -32,9 +32,11 @@ Versions
 
 This documentation describes the version of the add-on available under
 `github/tkeskita <https://github.com/tkeskita/swiftBlock>`_.
-The add-on is meant to work with
-Blender LTS 3.3 and
-`OpenFOAM Foundation <https://openfoam.org>`_ version 10.
+The add-on is aimed to work with latest
+`Blender LTS version <https://www.blender.org/download/lts/>`_ and
+latest `OpenFOAM Foundation <https://openfoam.org>`_ and
+latest `OpenFOAM.com <https://openfoam.com>`_ versions.
+Tested with Blender 4.2 and OpenFOAM.org v12
 
 Please note that
 `Preview command has an issue on Windows OS <https://github.com/tkeskita/swiftBlock/issues/12>`_.

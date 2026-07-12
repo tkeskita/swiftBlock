@@ -28,7 +28,11 @@ The add-on is aimed to work with latest
 [Blender LTS version](https://www.blender.org/download/lts/) and
 latest [OpenFOAM Foundation](https://openfoam.org/) and
 latest [OpenFOAM.com](https://openfoam.com) versions.
-Tested with Blender 4.2 and OpenFOAM.org v12.
+Tested with Blender 4.2 LTS and OpenFOAM.org v12.
+
+**Note:** for Blender 5.2 LTS and Ubuntu 24.04 there is a library conflict with OpenFOAM where
+[Blender fails to open with symbol lookup error for libembree4.so.4](https://github.com/tkeskita/swiftBlock/issues/19).
+See the issue for a workaround.
 
 ## Documentation
 

@@ -18,10 +18,7 @@
 
 import bpy
 from mathutils import Vector, Matrix, Euler
-import bgl
 import bmesh
-
-
 
 def vertices_from_mesh(ob):
     '''
@@ -99,61 +96,3 @@ def previewMesh(ob, points, faces):
     bpy.ops.object.mode_set(mode='OBJECT')
     previewMeshOb.show_all_edges = True
     previewMeshOb.show_wire = True
-
-arrow_head = [
-    [-1,-1],
-    [0,0],
-    [1,-1],
-]
-def draw_arrow_head(ob, vecFrom, vecTo):
-    if ob is None:
-        return
-
-    direction = Vector(vecTo) - Vector(vecFrom)
-    print(direction)
-    # direction.resize_2d()
-    # print(direction)
-    angle = direction.angle(Vector((0,1,0)))
-
-    # form a 2d rotation matrix
-    mat = Matrix().Rotation(angle, 2)
-
-    # middle point
-    middle = (Vector(vecTo) + Vector(vecFrom)) / 2.0
-
-
-    bgl.glEnable(bgl.GL_BLEND)
-    bgl.glBegin(bgl.GL_LINE_STRIP)
-    for v in arrow_head:
-        xy = Vector(v)* 1.0 * mat
-        xy.resize_3d()
-        newPos = xy + middle
-        bgl.glVertex3f(*newPos)
-        bgl.glLineWidth(2)
-        bgl.glColor4f(0.0,0.0,0.0,0.5)
-    bgl.glEnd()
-
-    # bgl.glEnable(bgl.GL_BLEND)
-    # bgl.glBegin(bgl.GL_LINES)
-    # bgl.glVertex3f(*(middle-Vector((1,0,0))))
-    # bgl.glVertex3f(*(middle-Vector((-1,0,0))))
-    # bgl.glVertex3f(*(middle-Vector((0,1,0))))
-    # bgl.glVertex3f(*(middle-Vector((0,-1,0))))
-    # print((middle-Vector((1,0,0))),(middle-Vector((-1,0,0))))
-
-def draw_edge_direction(self,context):
-    ob = bpy.context.active_object
-    if ob is None:
-        return
-    if bpy.context.active_object.mode != 'EDIT':
-        return
-    me = ob.data
-    bm = bmesh.from_edit_mesh(me)
-    # draw_arrow_head(bm.edges[0])
-    bgl.glEnable(bgl.GL_BLEND)
-    for e in bm.edges:
-        draw_arrow_head(ob, e.verts[0].co, e.verts[1].co)
-    bgl.glEnd()
-    bgl.glLineWidth(1)
-    bgl.glDisable(bgl.GL_BLEND)
-    bgl.glColor4f(0.0,0.0,0.0,1.0)
